@@ -1,12 +1,20 @@
-import Header from './components/Header'
-import { GlobalCss, Container } from './styles'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { GlobalCss } from './styles'
+import Home from './routes/home'
+import React from 'react'
+import Perfil from './routes/perfil'
 
 function App() {
   return (
-    <>
+    <React.StrictMode>
       <GlobalCss />
-      <Header />
-    </>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/perfil" element={<Perfil />} />
+        </Routes>
+      </BrowserRouter>
+    </React.StrictMode>
   )
 }
 

@@ -13,11 +13,16 @@ export const GlobalCss = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    list-style: none;
   }
 
   body {
     background-color: ${cores.bege};
-    color: ${cores.rosa}
+    color: ${cores.rosa};
+  }
+
+  .container{
+    max-width: 1024px;
   }
 `
 export const Container = styled.div`
