@@ -10,6 +10,13 @@ export const Card = styled.div`
   border: solid ${cores.rosa};
   border-width: 0px 1px 1px 1px;
 
+  > img {
+    display: block;
+    width: 100%;
+    max-height: 210px;
+    object-fit: cover;
+  }
+
   ${TagContainer} {
     margin-right: 8px;
   }

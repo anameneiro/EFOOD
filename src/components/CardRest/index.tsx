@@ -1,50 +1,46 @@
 import Tag from '../Tag'
 import star from '../../assets/imagens/estrelastar.png'
-import {
-  Avaliacao,
-  Button,
-  Card,
-  CardBody,
-  CardHead,
-  Description,
-  Infos,
-  Score,
-  Titulo
-} from './styles'
+import * as S from './styles'
 
 type Props = {
-  titulo: string
-  categoria: string
-  descricao: string
-  score: string
   imagem: string
+  categoria: string
+  titulo: string
+  score: string
+  descricao: string
 }
 
 const CardRestaurante = ({
-  titulo,
+  imagem,
   categoria,
-  descricao,
+  titulo,
   score,
-  imagem
+  descricao
 }: Props) => {
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 95) {
+      return descricao.slice(0, 187) + '...'
+    }
+    return descricao
+  }
   return (
-    <Card>
+    <S.Card>
       <img src={imagem} alt={categoria} />
-      <CardBody>
-        <CardHead>
-          <Titulo> {titulo}</Titulo>
-          <Avaliacao>
-            <Score> {score}</Score>
+      <S.CardBody>
+        <S.CardHead>
+          <S.Titulo> {titulo}</S.Titulo>
+          <S.Avaliacao>
+            <S.Score> {score}</S.Score>
             <img src={star} alt="Star" />
-          </Avaliacao>
-        </CardHead>
-        <Infos>
+          </S.Avaliacao>
+        </S.CardHead>
+        <S.Infos>
           <Tag> {categoria}</Tag>
-        </Infos>
-        <Description> {descricao}</Description>
-        <Button to={'/perfil'}> Saiba mais</Button>
-      </CardBody>
-    </Card>
+        </S.Infos>
+        <S.Description> {getDescricao(descricao)}</S.Description>
+        <S.Button to={'/perfil'}> Saiba mais</S.Button>
+      </S.CardBody>
+    </S.Card>
   )
 }
 
