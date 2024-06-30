@@ -13,14 +13,17 @@ const ListaRestaurante = ({ restaurantes }: Props) => {
     <Container>
       <ListRest>
         {restaurantes.map((restaurante) => (
-          <CardRestaurante
-            key={restaurante.id}
-            imagem={restaurante.capa}
-            titulo={restaurante.titulo}
-            categoria={restaurante.tipo}
-            descricao={restaurante.descricao}
-            score={restaurante.avaliacao}
-          />
+          <div key={restaurante.id}>
+            <CardRestaurante
+              id={restaurante.id}
+              imagem={restaurante.capa}
+              titulo={restaurante.titulo}
+              categoria={restaurante.tipo}
+              descricao={restaurante.descricao}
+              score={restaurante.avaliacao}
+              restaurantes={[]}
+            />
+          </div>
         ))}
       </ListRest>
     </Container>

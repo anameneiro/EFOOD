@@ -1,40 +1,27 @@
+import React from 'react'
 import { List } from './styles'
-import cardapiopizza from '../../assets/imagens/pizzamarg.png'
-import CardItens from '../CardapioCont'
+import CardItens from '../CardapioCont' // Corrija essa linha se o caminho estiver errado
+import { Cardapio } from '../CardapioCont' // Importando o tipo corretamente
 
-const CardapioList = () => {
+type Props = {
+  cardapios: Cardapio[]
+}
+
+const CardapioList: React.FC<Props> = ({ cardapios }) => {
   return (
     <List>
-      <CardItens
-        image={cardapiopizza}
-        title="Pizza Marguerita"
-        description="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-      />
-      <CardItens
-        image={cardapiopizza}
-        title="Pizza Marguerita"
-        description="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-      />
-      <CardItens
-        image={cardapiopizza}
-        title="Pizza Marguerita"
-        description="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-      />
-      <CardItens
-        image={cardapiopizza}
-        title="Pizza Marguerita"
-        description="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-      />
-      <CardItens
-        image={cardapiopizza}
-        title="Pizza Marguerita"
-        description="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-      />
-      <CardItens
-        image={cardapiopizza}
-        title="Pizza Marguerita"
-        description="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-      />
+      {cardapios.map((cardapio) => (
+        <div key={cardapio.id}>
+          <CardItens
+            id={cardapio.id}
+            foto={cardapio.foto}
+            nome={cardapio.nome}
+            descricao={cardapio.descricao}
+            preco={cardapio.preco}
+            porcao={cardapio.porcao}
+          />
+        </div>
+      ))}
     </List>
   )
 }

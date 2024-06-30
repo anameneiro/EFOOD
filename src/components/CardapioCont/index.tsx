@@ -1,86 +1,63 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
+
 import * as S from './styles'
 import close from '../../assets/imagens/close.png'
 
-type ModalState = {
-  isVisible: boolean
+export type Cardapio = {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
 }
-
-type Props = {
-  title: string
-  description: string
-  image: string
-}
-
-export default function CardItens({ title, description, image }: Props) {
-  const [modal, setModal] = useState<ModalState>({
+const CardItens: React.FC<Cardapio> = ({
+  foto,
+  preco,
+  nome,
+  descricao,
+  porcao
+}) => {
+  const [modal, setModal] = useState<{ isVisible: boolean }>({
     isVisible: false
   })
 
   const closeModal = () => {
-    setModal({
-      isVisible: false
-    })
+    setModal({ isVisible: false })
+  }
+
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 95) {
+      return descricao.slice(0, 160) + '...'
+    }
+    return descricao
   }
 
   return (
     <S.Card>
-      <img src={image} alt={title} />
-      <S.Title>{title}</S.Title>
-      <S.Description>{description}</S.Description>
-      <S.Button
-        to={''}
-        onClick={() => {
-          setModal({
-            isVisible: true
-          })
-        }}
-      >
+      <img src={foto} alt="imagem da foto" />
+      <S.Title>{nome}</S.Title>
+      <S.Description>{getDescricao(descricao)}</S.Description>
+      <S.Button to="" onClick={() => setModal({ isVisible: true })}>
         Adicionar ao carrinho
       </S.Button>
       <S.Modal className={modal.isVisible ? 'visivel' : ''}>
         <S.ModalContent className="container">
-          <img
-            src={close}
-            alt="foto"
-            onClick={() => {
-              closeModal()
-            }}
-          />
+          <img src={close} alt="foto" onClick={closeModal} />
           <div>
-            <img
-              src={image}
-              alt="foto"
-              onClick={() => {
-                closeModal()
-              }}
-            />
+            <img src={foto} alt="foto" onClick={closeModal} />
           </div>
           <S.InfosContainer>
-            <h4>Pizza Marguerita</h4>
-            <p>
-              A pizza Margherita é uma pizza clássica da culinária italiana,
-              reconhecida por sua simplicidade e sabor inigualável. Ela é feita
-              com uma base de massa fina e crocante, coberta com molho de tomate
-              fresco, queijo mussarela de alta qualidade, manjericão fresco e
-              azeite de oliva extra-virgem. A combinação de sabores é perfeita,
-              com o molho de tomate suculento e ligeiramente ácido, o queijo
-              derretido e cremoso e as folhas de manjericão frescas, que
-              adicionam um toque de sabor herbáceo. É uma pizza simples, mas
-              deliciosa, que agrada a todos os paladares e é uma ótima opção
-              para qualquer ocasião.
-            </p>
-            <p>Serve: 2 a 3 pessoas</p>
-            <S.ButtonModal>Adicionar ao carrinho</S.ButtonModal>
+            <h4>{nome}</h4>
+            <p>{descricao}</p>
+            <p>Serve: {porcao}</p>
+            <S.ButtonModal>Adicionar ao carrinho R$ {preco}</S.ButtonModal>
           </S.InfosContainer>
         </S.ModalContent>
-        <div
-          className="overlay"
-          onClick={() => {
-            closeModal()
-          }}
-        ></div>
+        <div className="overlay" onClick={closeModal}></div>
       </S.Modal>
     </S.Card>
   )
 }
+
+export default CardItens

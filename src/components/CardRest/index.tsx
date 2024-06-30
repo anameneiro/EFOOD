@@ -1,6 +1,7 @@
 import Tag from '../Tag'
 import star from '../../assets/imagens/estrelastar.png'
 import * as S from './styles'
+import { Restaurantes } from '../../routes/home'
 
 type Props = {
   imagem: string
@@ -8,6 +9,8 @@ type Props = {
   titulo: string
   score: string
   descricao: string
+  restaurantes: Restaurantes[]
+  id: number
 }
 
 const CardRestaurante = ({
@@ -15,7 +18,8 @@ const CardRestaurante = ({
   categoria,
   titulo,
   score,
-  descricao
+  descricao,
+  id
 }: Props) => {
   const getDescricao = (descricao: string) => {
     if (descricao.length > 95) {
@@ -38,7 +42,7 @@ const CardRestaurante = ({
           <Tag> {categoria}</Tag>
         </S.Infos>
         <S.Description> {getDescricao(descricao)}</S.Description>
-        <S.Button to={'/perfil'}> Saiba mais</S.Button>
+        <S.Button to={`/perfil/${id}`}> Saiba mais</S.Button>
       </S.CardBody>
     </S.Card>
   )

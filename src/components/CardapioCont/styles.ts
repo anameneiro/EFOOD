@@ -85,14 +85,16 @@ export const ModalContent = styled.div`
   img {
     width: 280px;
     height: 280px;
-    /* object-fit: cover; */
+    object-fit: cover;
     margin: 0 24px 0 0;
+    width: 280px;
   }
 
   > img {
     width: 16px;
     height: 16px;
     position: absolute;
+
     top: 10px;
     right: 10px;
     cursor: pointer;
@@ -133,4 +135,5 @@ export const ButtonModal = styled.button`
   font-weight: 700;
   height: 24px;
   width: 218px;
+  cursor: pointer;
 `

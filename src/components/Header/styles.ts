@@ -51,6 +51,7 @@ export const HeaderPerfil = styled.h3`
   line-height: 21px;
   color: ${cores.rosa};
   max-width: 1024px;
+  cursor: pointer;
 `
 
 export const ImageContainer = styled.div`

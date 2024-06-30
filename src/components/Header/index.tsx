@@ -31,7 +31,9 @@ export default function Header({ home }: Props) {
         <>
           <HeaderR>
             <Container>
-              <HeaderPerfil>Restaurantes</HeaderPerfil>
+              <Link to={'/'}>
+                <HeaderPerfil>Restaurantes</HeaderPerfil>
+              </Link>
               <Link to={'/'}>
                 <img src={logo} alt="Logotipo Efood" />
               </Link>
