@@ -1,23 +1,17 @@
 import React, { useState } from 'react'
-
+import { Menu } from '../../routes/perfil'
 import * as S from './styles'
 import close from '../../assets/imagens/close.png'
 
-export type Cardapio = {
-  foto: string
-  preco: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
-}
-const CardItens: React.FC<Cardapio> = ({
-  foto,
-  preco,
-  nome,
-  descricao,
-  porcao
-}) => {
+const CardItens = ({ foto, nome, descricao, porcao, preco, id }: Menu) => {
+  const menu: Menu = {
+    id,
+    foto,
+    nome,
+    descricao,
+    porcao,
+    preco
+  }
   const [modal, setModal] = useState<{ isVisible: boolean }>({
     isVisible: false
   })

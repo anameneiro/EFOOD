@@ -1,16 +1,15 @@
-import React from 'react'
+import { Menu } from '../../routes/perfil'
 import { List } from './styles'
 import CardItens from '../CardapioCont' // Corrija essa linha se o caminho estiver errado
-import { Cardapio } from '../CardapioCont' // Importando o tipo corretamente
 
 type Props = {
-  cardapios: Cardapio[]
+  produtos: Menu[]
 }
 
-const CardapioList: React.FC<Props> = ({ cardapios }) => {
+const CardapioList = ({ produtos }: Props) => {
   return (
     <List>
-      {cardapios.map((cardapio) => (
+      {produtos.map((cardapio) => (
         <div key={cardapio.id}>
           <CardItens
             id={cardapio.id}

@@ -1,32 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { useGetPerfilQuery } from '../services/api'
+
 import CardapioList from '../components/CardapioList'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { Container } from '../styles'
-import { Cardapio } from '../components/CardapioCont' // Importando o tipo corretamente
 
-const Perfil: React.FC = () => {
-  const [cardapios, setCardapios] = useState<Cardapio[]>([])
-  const [loading, setLoading] = useState<boolean>(true)
+export type Menu = {
+  id: number
+  foto: string
+  preco: string
+  nome: string
+  descricao: string
+  porcao: string
+}
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((data) => {
-        console.log('Dados recebidos da API:', data)
-        const allCardapios: Cardapio[] = data.flatMap(
-          (restaurante: any) => restaurante.cardapio
-        )
-        setCardapios(allCardapios)
-        setLoading(false)
-      })
-      .catch((error) => {
-        console.error('Error fetching cardapios:', error)
-        setLoading(false)
-      })
-  }, [])
+const Perfil = () => {
+  const { id } = useParams()
+  const { data: restaurant } = useGetPerfilQuery(id!)
 
-  if (loading) {
+  if (!restaurant) {
     return <h3>Carregando...</h3>
   }
 
@@ -34,7 +27,7 @@ const Perfil: React.FC = () => {
     <>
       <Header />
       <Container>
-        <CardapioList cardapios={cardapios} />
+        <CardapioList produtos={restaurant.cardapio} />
       </Container>
       <Footer />
     </>
