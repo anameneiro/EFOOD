@@ -4,6 +4,15 @@ import Header from '../components/Header'
 import ListaRestaurante from '../components/ListaRest'
 import { Container } from '../styles'
 
+export interface Menu {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
+}
+
 export type Restaurantes = {
   id: number
   titulo: string
@@ -11,14 +20,7 @@ export type Restaurantes = {
   avaliacao: string
   descricao: string
   capa: string
-  cardapio: {
-    foto: string
-    preco: string
-    id: number
-    nome: string
-    descricao: string
-    porcao: string
-  }
+  cardapio?: Menu[]
 }
 
 const Home = () => {

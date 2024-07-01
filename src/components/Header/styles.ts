@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import background from '../../assets/imagens/banner.png'
-import perfil from '../../assets/imagens/imagemperfil.png'
 
 import { Container, cores } from '../../styles'
 import { Props } from '.'
@@ -64,7 +63,6 @@ export const ImageContainer = styled.div`
 
   width: 100%;
   height: 280px;
-  background-image: url(${perfil});
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
