@@ -17,16 +17,18 @@ export const Card = styled.div`
 
 export const Title = styled.h3`
   font-weight: bold;
+  line-height: 19px;
   font-size: 16px;
   display: block;
   margin: 0;
+  padding-top: 8px;
 `
 
 export const Description = styled.p`
   font-size: 14px;
   display: block;
   font-weight: 400;
-  margin-top: 16px;
+  padding-top: 8px;
   line-height: 22px;
 `
 
@@ -70,8 +72,8 @@ export const Modal = styled.div`
 export const ModalContent = styled.div`
   max-width: 1024px;
   width: 100%;
-  max-height: 344px;
-  height: 100%;
+  height: 344px;
+  max-height: 100%;
   background-color: ${cores.rosa};
   color: ${cores.branco};
   padding: 32px;
@@ -79,14 +81,13 @@ export const ModalContent = styled.div`
   position: relative;
   z-index: 1;
   display: flex;
-  /* justify-content: space-between; */
   margin-bottom: 24px;
 
   img {
     width: 280px;
     height: 280px;
     object-fit: cover;
-    margin: 0 24px 0 0;
+    margin-right: 24px;
     width: 280px;
   }
 

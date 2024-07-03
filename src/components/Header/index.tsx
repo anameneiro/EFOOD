@@ -1,21 +1,14 @@
 import { Link } from 'react-router-dom'
-import { Restaurantes } from '../../routes/home'
+
 import { Container } from '../../styles'
-import {
-  HeaderPerfil,
-  HeaderR,
-  HeaderTitle,
-  ImageContainer,
-  RestaurantTitle
-} from './styles'
+import { HeaderPerfil, HeaderR, HeaderTitle } from './styles'
 import logo from '../../assets/imagens/logologo.png'
 
 export type Props = {
   home?: boolean
-  restaurante?: Restaurantes
 }
 
-export default function Header({ home, restaurante }: Props) {
+export default function Header({ home }: Props) {
   return (
     <>
       {home ? (
@@ -42,14 +35,6 @@ export default function Header({ home, restaurante }: Props) {
               <HeaderPerfil>0 produto(s) no carrinho</HeaderPerfil>
             </Container>
           </HeaderR>
-          <ImageContainer
-            style={{ backgroundImage: `url(${restaurante?.capa})` }}
-          >
-            <Container>
-              <RestaurantTitle category>{restaurante?.tipo}</RestaurantTitle>
-              <RestaurantTitle>{restaurante?.titulo}</RestaurantTitle>
-            </Container>
-          </ImageContainer>
         </>
       )}
     </>
