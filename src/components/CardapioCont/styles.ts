@@ -125,16 +125,13 @@ export const InfosContainer = styled.div`
 export const ButtonModal = styled.button`
   text-decoration: none;
   display: block;
-  padding: 4px 0;
   background-color: ${cores.begeEscuro};
   border: transparent;
-  width: 100%;
   margin-top: 8px;
   color: ${cores.rosa};
   text-align: center;
   font-size: 14px;
   font-weight: 700;
-  height: 24px;
-  width: 218px;
+  padding: 4px 7px;
   cursor: pointer;
 `

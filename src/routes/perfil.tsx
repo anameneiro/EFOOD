@@ -10,7 +10,7 @@ import BannerPerfil from '../components/BannerPerfil'
 export type Menu = {
   id: number
   foto: string
-  preco: string
+  preco: number
   nome: string
   descricao: string
   porcao: string
@@ -18,6 +18,7 @@ export type Menu = {
 
 const Perfil = () => {
   const { id } = useParams()
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const { data: restaurant } = useGetPerfilQuery(id!)
 
   if (!restaurant) {

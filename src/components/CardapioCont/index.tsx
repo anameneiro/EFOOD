@@ -1,9 +1,20 @@
-import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useState } from 'react'
 import { Menu } from '../../routes/perfil'
 import * as S from './styles'
 import close from '../../assets/imagens/close.png'
+import { add, open } from '../../store/reducers/cart'
+
+export const formataPreco = (preco = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(preco)
+}
 
 const CardItens = ({ foto, nome, descricao, porcao, preco, id }: Menu) => {
+  const dispatch = useDispatch()
+
   const menu: Menu = {
     id,
     foto,
@@ -11,6 +22,11 @@ const CardItens = ({ foto, nome, descricao, porcao, preco, id }: Menu) => {
     descricao,
     porcao,
     preco
+  }
+
+  const addToCart = () => {
+    dispatch(add(menu))
+    dispatch(open())
   }
   const [modal, setModal] = useState<{ isVisible: boolean }>({
     isVisible: false
@@ -45,7 +61,9 @@ const CardItens = ({ foto, nome, descricao, porcao, preco, id }: Menu) => {
             <h4>{nome}</h4>
             <p>{descricao}</p>
             <p>Serve: {porcao}</p>
-            <S.ButtonModal>Adicionar ao carrinho R$ {preco}</S.ButtonModal>
+            <S.ButtonModal onClick={addToCart}>
+              Adicionar ao carrinho R$ {formataPreco(preco)}
+            </S.ButtonModal>
           </S.InfosContainer>
         </S.ModalContent>
         <div className="overlay" onClick={closeModal}></div>

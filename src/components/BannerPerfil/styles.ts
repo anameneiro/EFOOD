@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const BannerP = styled.div`
   position: relative;
@@ -44,6 +44,10 @@ export const BannerP = styled.div`
       font-size: 32px;
       line-height: 38px;
       padding-bottom: 32px;
+    }
+
+    @media (max-width: ${breakpoints.desktop}) {
+      max-width: 80%;
     }
   }
 `

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import background from '../../assets/imagens/banner.png'
 
-import { Container, cores } from '../../styles'
+import { breakpoints, Container, cores } from '../../styles'
 import { Props } from '.'
 
 type Title = {
@@ -24,6 +24,11 @@ export const HeaderR = styled.header<Props>`
       width: 125px;
       margin-top: ${(props) => (props.home ? '50px' : '0')};
       height: 57.5px;
+
+      @media (max-width: ${breakpoints.tablet}) {
+        width: 100px;
+        height: 50.5px;
+      }
     }
   }
 `
@@ -38,8 +43,12 @@ export const HeaderTitle = styled.h2`
   font-size: 36px;
   line-height: 42px;
   text-align: center;
-
   color: ${cores.rosa};
+
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 28px;
+    max-width: 90%;
+  }
 `
 export const HeaderPerfil = styled.h3`
   height: 21px;
@@ -51,6 +60,10 @@ export const HeaderPerfil = styled.h3`
   color: ${cores.rosa};
   max-width: 1024px;
   cursor: pointer;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 16px;
+  }
 `
 
 export const ImageContainer = styled.div`
