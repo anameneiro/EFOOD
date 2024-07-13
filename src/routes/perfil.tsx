@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { Container } from '../styles'
 import BannerPerfil from '../components/BannerPerfil'
+import Checkout from '../components/Checkout'
 
 export type Menu = {
   id: number
@@ -32,6 +33,7 @@ const Perfil = () => {
       <Container>
         <CardapioList produtos={restaurant.cardapio} />
       </Container>
+      <Checkout />
       <Footer />
     </>
   )

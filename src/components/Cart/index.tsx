@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import * as S from './styles'
 import lixeira from '../../assets/imagens/lixeira.png'
-import { close, remove } from '../../store/reducers/cart'
+import { close, openOrder, remove } from '../../store/reducers/cart'
 import { formataPreco } from '../CardapioCont'
 
 const Cart = () => {
@@ -21,6 +21,11 @@ const Cart = () => {
   }
   const removeItem = (id: number) => {
     dispatch(remove(id))
+  }
+
+  const openOrderAction = () => {
+    dispatch(openOrder())
+    dispatch(close())
   }
 
   return (
@@ -48,7 +53,7 @@ const Cart = () => {
             <p>Valor total</p>
             <p>{formataPreco(getTotalPrice())}</p>
           </S.TotalPrice>
-          <S.Button>Continuar com a entrega</S.Button>
+          <S.Button onClick={openOrderAction}>Continuar com a entrega</S.Button>
         </S.SideBar>
       </S.CartContainer>
     </>
