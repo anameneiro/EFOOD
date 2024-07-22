@@ -1,12 +1,14 @@
 import { useParams } from 'react-router-dom'
-import { useGetPerfilQuery } from '../services/api'
 
+import { Container } from '../styles'
+
+import { useGetPerfilQuery } from '../services/api'
 import CardapioList from '../components/CardapioList'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import { Container } from '../styles'
 import BannerPerfil from '../components/BannerPerfil'
 import Checkout from '../components/Checkout'
+import Loader from '../components/Loader'
 
 export type Menu = {
   id: number
@@ -23,7 +25,7 @@ const Perfil = () => {
   const { data: restaurant } = useGetPerfilQuery(id!)
 
   if (!restaurant) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (

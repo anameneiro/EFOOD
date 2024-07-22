@@ -1,14 +1,15 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
-export const cores = {
-  rosa: '#E66767',
-  branco: '#FFFFFF',
-  bege: '#FFF8F2',
-  begeEscuro: '#FFEBD9'
+export const colors = {
+  pink: '#E66767',
+  white: '#FFFFFF',
+  beige: '#FFF8F2',
+  beigeDark: '#FFEBD9'
 }
 export const breakpoints = {
   desktop: '1024px',
-  tablet: '768px'
+  tablet: '768px',
+  smartphone: '480px'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -22,8 +23,8 @@ export const GlobalCss = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.bege};
-    color: ${cores.rosa};
+    background-color: ${colors.beige};
+    color: ${colors.pink};
   }
 
   .container{

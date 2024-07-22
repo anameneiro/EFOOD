@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const BannerP = styled.div`
   position: relative;
@@ -25,7 +25,7 @@ export const BannerP = styled.div`
     position: relative;
     height: 100%;
     font-size: 32px;
-    color: ${cores.branco};
+    color: ${colors.white};
     display: flex;
     flex-direction: column;
     justify-content: space-between;

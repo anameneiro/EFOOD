@@ -1,28 +1,11 @@
+import { Container } from '../styles'
+
 import { useGetRestaurantesQuery } from '../services/api'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import ListaRestaurante from '../components/ListaRest'
-import { Container } from '../styles'
 
-export type Restaurantes = {
-  data: Restaurantes[]
-  id: number
-  titulo: string
-  tipo: string
-  avaliacao: string
-  descricao: string
-  capa: string
-  cardapio: [
-    {
-      foto: string
-      preco: number
-      id: number
-      nome: string
-      descricao: string
-      porcao: string
-    }
-  ]
-}
+import Loader from '../components/Loader'
 
 const Home = () => {
   const { data: restaurantes } = useGetRestaurantesQuery()
@@ -37,7 +20,7 @@ const Home = () => {
       </>
     )
   }
-  return <h4>Carregando...</h4>
+  return <Loader />
 }
 
 export default Home

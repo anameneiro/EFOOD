@@ -1,8 +1,11 @@
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
-import { Menu } from '../../routes/perfil'
+
 import * as S from './styles'
+
 import close from '../../assets/imagens/close.png'
+
+import { Menu } from '../../routes/perfil'
 import { add, open } from '../../store/reducers/cart'
 
 export const formataPreco = (preco = 0) => {
@@ -23,16 +26,13 @@ const CardItens = ({ foto, nome, descricao, porcao, preco, id }: Menu) => {
     porcao,
     preco
   }
-
-  const addToCart = () => {
-    dispatch(add(menu))
-    dispatch(open())
-  }
   const [modal, setModal] = useState<{ isVisible: boolean }>({
     isVisible: false
   })
 
-  const closeModal = () => {
+  const handleAddToCart = () => {
+    dispatch(add(menu))
+    dispatch(open())
     setModal({ isVisible: false })
   }
 
@@ -48,25 +48,44 @@ const CardItens = ({ foto, nome, descricao, porcao, preco, id }: Menu) => {
       <img src={foto} alt="imagem da foto" />
       <S.Title>{nome}</S.Title>
       <S.Description>{getDescricao(descricao)}</S.Description>
-      <S.Button to="" onClick={() => setModal({ isVisible: true })}>
+      <S.Button
+        title="Clique para adicionar o item ao carrinho"
+        to=""
+        onClick={() => setModal({ isVisible: true })}
+      >
         Adicionar ao carrinho
       </S.Button>
       <S.Modal className={modal.isVisible ? 'visivel' : ''}>
         <S.ModalContent className="container">
-          <img src={close} alt="foto" onClick={closeModal} />
+          <img
+            title="Clique aqui para fechar"
+            src={close}
+            alt="foto"
+            onClick={() => setModal({ isVisible: false })}
+          />
           <div>
-            <img src={foto} alt="foto" onClick={closeModal} />
+            <img
+              src={foto}
+              alt="foto"
+              onClick={() => setModal({ isVisible: false })}
+            />
           </div>
           <S.InfosContainer>
             <h4>{nome}</h4>
             <p>{descricao}</p>
             <p>Serve: {porcao}</p>
-            <S.ButtonModal onClick={addToCart}>
+            <S.ButtonModal
+              title="Clique para adicionar o item ao carrinho"
+              onClick={handleAddToCart}
+            >
               Adicionar ao carrinho R$ {formataPreco(preco)}
             </S.ButtonModal>
           </S.InfosContainer>
         </S.ModalContent>
-        <div className="overlay" onClick={closeModal}></div>
+        <div
+          className="overlay"
+          onClick={() => setModal({ isVisible: false })}
+        ></div>
       </S.Modal>
     </S.Card>
   )

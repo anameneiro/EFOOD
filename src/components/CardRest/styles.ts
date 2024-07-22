@@ -1,13 +1,13 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { colors } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 import { Link } from 'react-router-dom'
 
 export const Card = styled.div`
   position: relative;
-  color: ${cores.branco};
-  background-color: ${cores.branco};
-  border: solid ${cores.rosa};
+  color: ${colors.white};
+  background-color: ${colors.white};
+  border: solid ${colors.pink};
   border-width: 0px 1px 1px 1px;
 
   > img {
@@ -41,7 +41,7 @@ export const Titulo = styled.h2`
   line-height: 21px;
   display: block;
   margin: 0;
-  color: ${cores.rosa};
+  color: ${colors.pink};
 `
 
 export const Score = styled.h3`
@@ -50,7 +50,7 @@ export const Score = styled.h3`
   display: block;
   margin: 0;
   margin-right: 4px;
-  color: ${cores.rosa};
+  color: ${colors.pink};
   font-weight: 700;
   text-align: center;
   font-size: 18px;
@@ -68,17 +68,17 @@ export const Description = styled.p`
   font-weight: 400;
   margin-top: 16px;
   line-height: 22px;
-  color: ${cores.rosa};
+  color: ${colors.pink};
   margin-bottom: 16px;
 `
 export const Button = styled(Link)`
   text-decoration: none;
-  background-color: ${cores.rosa};
+  background-color: ${colors.pink};
   border: transparent;
   padding: 4px 6px;
   width: 90px;
   margin-top: 8px;
-  color: ${cores.branco};
+  color: ${colors.white};
   text-align: center;
   font-size: 14px;
   font-family: 'Roboto';

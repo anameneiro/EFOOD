@@ -40,7 +40,13 @@ const CardRestaurante = ({
           <Tag> {tipo}</Tag>
         </S.Infos>
         <S.Description> {getDescricao(descricao)}</S.Description>
-        <S.Button to={`/perfil/${id}`}> Saiba mais</S.Button>
+        <S.Button
+          title="Clique para visualizar o cardápio do restaurante"
+          to={`/perfil/${id}`}
+        >
+          {' '}
+          Saiba mais
+        </S.Button>
       </S.CardBody>
     </S.Card>
   )

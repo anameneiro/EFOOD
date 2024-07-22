@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import background from '../../assets/imagens/banner.png'
 
-import { breakpoints, Container, cores } from '../../styles'
+import { breakpoints, Container, colors } from '../../styles'
 import { Props } from '.'
 
 type Title = {
@@ -43,7 +43,7 @@ export const HeaderTitle = styled.h2`
   font-size: 36px;
   line-height: 42px;
   text-align: center;
-  color: ${cores.rosa};
+  color: ${colors.pink};
 
   @media (max-width: ${breakpoints.desktop}) {
     font-size: 28px;
@@ -57,7 +57,7 @@ export const HeaderPerfil = styled.h3`
   font-weight: 900;
   font-size: 18px;
   line-height: 21px;
-  color: ${cores.rosa};
+  color: ${colors.pink};
   max-width: 1024px;
   cursor: pointer;
 
@@ -100,7 +100,7 @@ export const RestaurantTitle = styled.h2<Title>`
   font-weight: ${(props) => (props.category ? '100' : '900')};
   font-size: 32px;
   line-height: 38px;
-  color: ${cores.branco};
+  color: ${colors.white};
   margin-top: 24px;
   margin-bottom: 32px;
   max-width: 1024px;

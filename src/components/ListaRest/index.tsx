@@ -1,8 +1,7 @@
-import CardRestaurante from '../CardRest'
 import { ListRest } from './styles'
-
 import { Container } from '../../styles'
-import { Restaurantes } from '../../routes/home'
+
+import CardRestaurante from '../CardRest'
 
 type Props = {
   restaurantes: Restaurantes[]

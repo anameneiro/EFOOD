@@ -1,6 +1,6 @@
 import { Menu } from '../../routes/perfil'
 import { List } from './styles'
-import CardItens from '../CardapioCont' // Corrija essa linha se o caminho estiver errado
+import CardItens from '../CardapioCont'
 
 type Props = {
   produtos: Menu[]

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const CartContainer = styled.div`
   position: fixed;
@@ -28,7 +28,15 @@ export const Overlay = styled.div`
 export const SideBar = styled.aside`
   z-index: 1;
   width: 360px;
-  background-color: ${cores.rosa};
+  background-color: ${colors.pink};
+
+  .empty-text {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 22px;
+    color: ${colors.white};
+    text-align: center;
+  }
 `
 
 export const List = styled.ul`
@@ -40,8 +48,8 @@ export const ListItem = styled.li`
   display: flex;
   margin-top: 16px;
   padding: 8px 8px 12px 8px;
-  color: ${cores.rosa};
-  background-color: ${cores.bege};
+  color: ${colors.pink};
+  background-color: ${colors.beige};
 
   div {
     margin-left: 8px;
@@ -78,7 +86,7 @@ export const TotalPrice = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 8px;
-  color: ${cores.bege};
+  color: ${colors.beige};
   margin-top: 40px;
   margin-bottom: 16px;
 `
@@ -92,8 +100,8 @@ export const Button = styled.button`
   margin-right: 8px;
   border: none;
   text-decoration: none;
-  background-color: ${cores.begeEscuro};
-  color: ${cores.rosa};
+  background-color: ${colors.beigeDark};
+  color: ${colors.pink};
   cursor: pointer;
   width: 344px;
 `

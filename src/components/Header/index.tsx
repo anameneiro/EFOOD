@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
+import * as S from './styles'
+
+import logo from '../../assets/imagens/logologo.png'
+
 import { open } from '../../store/reducers/cart'
 import { Container } from '../../styles'
-import { HeaderPerfil, HeaderR, HeaderTitle } from './styles'
-import logo from '../../assets/imagens/logologo.png'
-import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 
 export type Props = {
@@ -21,31 +24,38 @@ export default function Header({ home }: Props) {
   return (
     <>
       {home ? (
-        <HeaderR home>
+        <S.HeaderR home>
           <Container>
             <Link to={'/'}>
-              <img src={logo} alt="Logotipo Efood" />
+              <img
+                title="Clique para ir até nossa página principal"
+                src={logo}
+                alt="Logotipo Efood"
+              />
             </Link>
-            <HeaderTitle>
+            <S.HeaderTitle>
               Viva experiências gastronômicas no conforto da sua casa
-            </HeaderTitle>
+            </S.HeaderTitle>
           </Container>
-        </HeaderR>
+        </S.HeaderR>
       ) : (
         <>
-          <HeaderR>
+          <S.HeaderR>
             <Container>
-              <Link to={'/'}>
-                <HeaderPerfil>Restaurantes</HeaderPerfil>
+              <Link title="Clique para ir até nossa página principal" to={'/'}>
+                <S.HeaderPerfil>Restaurantes</S.HeaderPerfil>
               </Link>
-              <Link to={'/'}>
+              <Link title="Clique para ir até nossa página principal" to={'/'}>
                 <img src={logo} alt="Logotipo Efood" />
               </Link>
-              <HeaderPerfil onClick={openCart}>
+              <S.HeaderPerfil
+                title="Clique aqui para abrir nosso carrinho"
+                onClick={openCart}
+              >
                 {items.length} produto(s) no carrinho
-              </HeaderPerfil>
+              </S.HeaderPerfil>
             </Container>
-          </HeaderR>
+          </S.HeaderR>
         </>
       )}
     </>

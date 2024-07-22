@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const Container = styled.footer`
-  background-color: ${cores.begeEscuro};
+  background-color: ${colors.beigeDark};
   padding: 40px 0;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@ export const Link = styled.a`
 `
 export const Description = styled.p`
   width: 480px;
-  color: ${cores.rosa};
+  color: ${colors.pink};
   font-size: 10px;
   line-height: 12px;
   text-align: center;

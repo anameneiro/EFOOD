@@ -1,4 +1,3 @@
-import { Restaurantes } from '../../routes/home'
 import { BannerP } from './styles'
 
 type Props = {

@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { Link } from 'react-router-dom'
 
 export const Card = styled.div`
   position: relative;
-  background-color: ${cores.rosa};
-  color: ${cores.branco};
+  background-color: ${colors.pink};
+  color: ${colors.white};
   border-width: 0 1px 1px 1px;
   padding: 8px;
 
@@ -36,11 +36,11 @@ export const Button = styled(Link)`
   text-decoration: none;
   display: block;
   padding: 4px 0;
-  background-color: ${cores.begeEscuro};
+  background-color: ${colors.beigeDark};
   border: transparent;
   width: 100%;
   margin-top: 8px;
-  color: ${cores.rosa};
+  color: ${colors.pink};
   text-align: center;
   font-size: 14px;
   font-weight: 700;
@@ -74,14 +74,21 @@ export const ModalContent = styled.div`
   width: 100%;
   height: 344px;
   max-height: 100%;
-  background-color: ${cores.rosa};
-  color: ${cores.branco};
+  background-color: ${colors.pink};
+  color: ${colors.white};
   padding: 32px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
   display: flex;
   margin-bottom: 24px;
+  text-align: justify;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+    height: auto;
+    width: 90%;
+  }
 
   img {
     width: 280px;
@@ -125,10 +132,10 @@ export const InfosContainer = styled.div`
 export const ButtonModal = styled.button`
   text-decoration: none;
   display: block;
-  background-color: ${cores.begeEscuro};
+  background-color: ${colors.beigeDark};
   border: transparent;
   margin-top: 8px;
-  color: ${cores.rosa};
+  color: ${colors.pink};
   text-align: center;
   font-size: 14px;
   font-weight: 700;
